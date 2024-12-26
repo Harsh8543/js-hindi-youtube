@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur Code  | DOM </title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class ="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(langName){
+      const li =  document.createElement('li');  //creation of the element
+li.innerHTML =`${langName}` //adding the value to the list item so that's why we have to add in their inner html
+
+document.querySelector('.language'). //using the query selector we have to select the class which is the (language)
+appendChild(li)
+
+    }
+    //adding the language in the optmise way
+    addLanguage("python")
+    addLanguage("typescript")
+    function addOptiLanguage(langName){
+        const li =  document.createElement('li');
+        li.appendChild(document.createTextNode(langName))  //without doing the innerHTML at this time we have to do the append child  and now further we have to create the node
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptiLanguage('golang')
+
+    //edit
+    const secondLang = document.querySelector("li:nth-child(2)")
+    //secondLang.innerHTML ="Mojo"
+    const newli=document.createElement('li')
+    newli.textContent="Mojo"
+    secondLang.replaceWith(newli)  //we have to add in the newli into the secondli
+//edit
+const firstLang = document.querySelector("li:first-child")
+    firstLang.outerHTML = '<li>TypeScript</li>'
+
+    //remove
+    const lastLang = document.querySelector('li:last-child')
+    lastLang.remove()
+</script>
+</html>
